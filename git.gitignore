@@ -1,0 +1,172 @@
+# 🎯 TÜM PROJELER İÇİN EVRENSEL .gitignore
+# -----------------------------------------------------------
+
+# ► İŞLETİM SİSTEMİ GİZLİ DOSYALARI ◄
+# -----------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ► IDE ve EDITÖR DOSYALARI ◄
+# -----------------------------------------------
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.settings/
+bin/
+*.tmp
+
+# Sublime Text
+*.sublime-*
+
+# ► NODE.JS (Web Projeleri) ◄
+# -----------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.lock-wscript
+.npm
+.node_repl_history
+
+# ► PYTHON ◄
+# -----------------------------------------------
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ► JAVA ◄
+# -----------------------------------------------
+# Compiled class files
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# ► UNITY ◄
+# -----------------------------------------------
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Pp]rojects/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# MemoryCaptures
+*.mdc
+
+# Asset meta data should only be ignored when the corresponding asset is also ignored
+!/[Aa]ssets/**/*.meta
+
+# ► ANDROID ◄
+# -----------------------------------------------
+# Built application files
+*.apk
+*.aar
+*.ap_
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# ► LOG ve VERİ DOSYALARI ◄
+# -----------------------------------------------
+*.log
+logs/
+*.sql
+*.sqlite
+*.db
+
+# ► ÇEVRE DEĞİŞKENLERİ ve ŞİFRELER ◄
+# -----------------------------------------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.secret
+*.key
+*.pem
+
+# ► TMP ve CACHE ◄
+# -----------------------------------------------
+.cache/
+*.tmp
+*.temp
+.tmp/
+temp/
+
+# ► DERLEME ÇIKTILARI ◄
+# -----------------------------------------------
+dist/
+build/
+out/
+target/
+*.exe
+*.dll
+*.lib
