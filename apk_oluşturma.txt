@@ -1,0 +1,11 @@
+adb Shell pm list packages
+adb Shell pm path "uygulama com.adı"
+adb pull "base yolu"
+grep -ri "aranacak şey" .
+geany "yol"
+ctrl+f ile mcoin araması
+apktool b "decode edilen klasörün adı" -o "yeni apk nın adı"
+zipalign -v 4 "apknın adı" "yeni apknın adı"
+appsigner sign --ks "keyin adı.keystoref"
+keytool -genkeypair -v -keystore my-release-key.keystore -alias my-key-alias \  -keyalg RSA -keysize 2048 -validity 10000
+apksigner sign --ks my-release-key.keystore "senin.apk"
